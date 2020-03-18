@@ -58,9 +58,9 @@ class AccountContainer extends Component {
     this.setState({
       search: event.target.value
     })
-    let searchArr = 
+    let searchArr = this.state.transactions.filter(trans => trans.description.includes(this.state.search))
     this.setState({
-     transactions: searchArr
+     filteredTransactions: searchArr
     })
   }
   
