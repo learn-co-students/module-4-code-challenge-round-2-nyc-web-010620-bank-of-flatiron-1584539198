@@ -75,6 +75,8 @@ class AccountContainer extends Component {
       method: "DELETE"
     })
   }
+
+  
   
 
 
@@ -83,6 +85,7 @@ class AccountContainer extends Component {
       <div>
         <Search handleSearch={this.handleSearch} search={this.state.search}/>
         <AddTransactionForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} newTransaction={this.state}/>
+        <button> Sort by Alpha </button>
         <TransactionsList transactions={this.state.filteredTransactions} handleDelete={this.handleDelete}/>
       </div>
     );

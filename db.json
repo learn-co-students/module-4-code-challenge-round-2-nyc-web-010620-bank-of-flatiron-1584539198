@@ -83,6 +83,13 @@
       "category": "sss",
       "amount": "100",
       "id": 12
+    },
+    {
+      "date": "2020-03-12",
+      "description": "sss",
+      "category": "ss",
+      "amount": "",
+      "id": 13
     }
   ]
 }
