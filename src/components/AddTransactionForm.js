@@ -6,10 +6,10 @@ class AddTransactionForm extends Component {
       <div className="ui segment">
         <form className="ui form" onSubmit={this.props.handleSubmit}> 
           <div className="inline fields">
-            <input onChange={this.props.handleChange} type="date" name="date" />
-            <input onChange={this.props.handleChange} type="text" name="description" placeholder="Description" />
-            <input onChange={this.props.handleChange} type="text" name="category" placeholder="Category" />
-            <input onChange={this.props.handleChange} type="number" name="amount" placeholder="Amount" step="0.01" />
+            <input onChange={this.props.handleChange} value={this.props.newTransaction.date} type="date" name="date" />
+            <input onChange={this.props.handleChange} value={this.props.newTransaction.description} type="text" name="description" placeholder="Description" />
+            <input onChange={this.props.handleChange} value={this.props.newTransaction.category} type="text" name="category" placeholder="Category" />
+            <input onChange={this.props.handleChange} value={this.props.newTransaction.amount} type="number" name="amount" placeholder="Amount" step="0.01" />
           </div>
           <button className="ui button" type="submit">
             Add Transaction

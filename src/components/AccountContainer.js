@@ -26,8 +26,7 @@ class AccountContainer extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({
-      ...this.state.allTransactions, newTransaction: { [e.target.name]: e.target.value } })
+    this.setState({ newTransaction: {...this.state.newTransaction, [e.target.name]: e.target.value } })
   }
 
   render() {
@@ -35,7 +34,7 @@ class AccountContainer extends Component {
     return (
       <div>
         <Search />
-        <AddTransactionForm />
+        <AddTransactionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} newTransaction={this.state.newTransaction}/>
         <TransactionsList recipes={this.state.allTransactions}/>
       </div>
     );
