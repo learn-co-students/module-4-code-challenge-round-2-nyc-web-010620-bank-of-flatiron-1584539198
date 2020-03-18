@@ -19,6 +19,8 @@ class AccountContainer extends Component {
     })
   }
 
+  handle
+
   render() {
     return (
       <div>
