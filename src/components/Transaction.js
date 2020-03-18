@@ -8,6 +8,7 @@ const Transaction = (props) => {
       <td>{props.transaction.description}</td>
       <td>{props.transaction.category}</td>
       <td>{props.transaction.amount}</td>
+      <button>Delete</button>
     </tr>
   );
 };

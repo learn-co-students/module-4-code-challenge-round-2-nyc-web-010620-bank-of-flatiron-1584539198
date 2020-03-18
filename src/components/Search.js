@@ -4,8 +4,9 @@ class Search extends React.Component {
   state = { value: "" };
 
   onChange = event => {
-    this.setState({ value: event.target.value });
-    this.props.onSearch(event.target.value);
+    const {value} = event.target
+    this.setState({ value: value });
+    this.props.onSearch(value);
   };
 
   render() {
