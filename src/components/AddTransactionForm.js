@@ -12,6 +12,7 @@ class AddTransactionForm extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+    console.log(this.state.date)
   }
 
   render() {
@@ -19,7 +20,7 @@ class AddTransactionForm extends Component {
       <div className="ui segment">
         <form className="ui form">
           <div className="inline fields">
-            <input type="date" name="date" />
+            <input type="date" name="date" onChange={this.handleChange} />
             <input type="text" name="description" placeholder="Description" onChange={this.handleChange}/>
             <input type="text" name="category" placeholder="Category" onChange={this.handleChange} />
             <input
@@ -27,6 +28,7 @@ class AddTransactionForm extends Component {
               name="amount"
               placeholder="Amount"
               step="0.01"
+              onChange={this.handleChange}
             />
           </div>
           <button className="ui button" type="submit">
