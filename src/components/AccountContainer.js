@@ -7,6 +7,7 @@ class AccountContainer extends Component {
 
   state = {
     allTransactions: [],
+    copyTrans: [],
     search: '',
     newTransaction: {
       date: '',
@@ -19,7 +20,7 @@ class AccountContainer extends Component {
   componentDidMount(){
     fetch('http://localhost:6001/transactions')
       .then(resp => resp.json())
-      .then(allTransactions => this.setState({allTransactions}))
+      .then(allTransactions => this.setState({allTransactions: allTransactions, copyTrans: allTransactions}))
   }
 
   handleSubmit = (e) => {
@@ -35,9 +36,10 @@ class AccountContainer extends Component {
   }
 
   searchChange = (e) => {
+    let changer = this.state.copyTrans
     this.setState({ search: e.target.value },
       () => { this.setState({
-        allTransactions: this.state.allTransactions.filter(trans => trans.description.includes(this.state.search))
+        allTransactions: this.state.copyTrans.filter(trans => trans.description.includes(this.state.search))
       }) }
     )
   }
