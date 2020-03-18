@@ -8,7 +8,8 @@ class AccountContainer extends Component {
   state = {
     transactions: [],
     displayedTransactions: [],
-    searchVal: ''
+    searchVal: '',
+    alphabetical: false
   }
 
   componentDidMount() {
@@ -39,10 +40,31 @@ class AccountContainer extends Component {
     })
   }
 
+  handleClickSort = event => {
+    let button = event.target
+    if (this.state.alphabetical) {
+      let unsorted = this.state.transactions
+      this.setState({
+        displayedTransactions: unsorted,
+        alphabetical: !this.state.alphabetical
+      })
+      button.innerText = "Sort By Description"
+    } else {
+      let sorted = [...this.state.transactions]
+      sorted.sort((a,b) => a.description < b.description ? -1 : 1)
+      this.setState({
+        displayedTransactions: sorted,
+        alphabetical: !this.state.alphabetical
+      })
+      button.innerText = "Sort By Date"
+    }
+  }
+
   render() {
     return (
       <div>
         <Search handleChange={this.handleSearchChange} />
+        <button onClick={this.handleClickSort}>Sort By Description</button>
         <AddTransactionForm addTransaction={this.addTransaction} />
         <TransactionsList transactions={this.state.displayedTransactions}/>
       </div>
