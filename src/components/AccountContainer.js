@@ -31,11 +31,12 @@ class AccountContainer extends Component {
   }
 
   handleSearchChange = event => {
+    let search = event.target.value
+    let filtered = this.state.transactions.filter(transact => transact.description.toLowerCase().includes(search.toLowerCase()))
     this.setState({
-      searchVal: event.target.value,
-      // displayedTransactions: displayedTransactions.filter(transact => transact.description.includes(searchVal))
+      searchVal: search,
+      displayedTransactions: filtered
     })
-    console.log(this.state.searchVal)
   }
 
   render() {
