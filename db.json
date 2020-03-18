@@ -78,18 +78,32 @@
       "amount": -116.39
     },
     {
-      "date": "",
-      "description": "sss",
-      "category": "sss",
-      "amount": "100",
+      "date": "2020-03-04",
+      "description": "Its cool ",
+      "category": "sjsj",
+      "amount": "1",
       "id": 12
     },
     {
-      "date": "2020-03-12",
-      "description": "sss",
-      "category": "ss",
-      "amount": "",
+      "date": "2020-03-04",
+      "description": "Its cool ",
+      "category": "sjsj",
+      "amount": "1",
       "id": 13
+    },
+    {
+      "date": "",
+      "description": "me",
+      "category": "me",
+      "amount": "1",
+      "id": 14
+    },
+    {
+      "date": "",
+      "description": "yoo",
+      "category": "too",
+      "amount": "100",
+      "id": 15
     }
   ]
 }

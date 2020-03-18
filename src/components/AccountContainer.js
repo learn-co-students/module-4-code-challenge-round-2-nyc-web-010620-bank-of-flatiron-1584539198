@@ -47,8 +47,10 @@ class AccountContainer extends Component {
       })
     }).then(response => response.json())
     .then(response => {
+      let copyArr = [...this.state.transactions,response]
       this.setState({
-        filteredTransactions: [...this.state.filteredTransactions,response]
+        transactions: copyArr,
+        filteredTransactions: copyArr
       })
 
     })
