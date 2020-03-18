@@ -45,7 +45,7 @@ class AccountContainer extends Component {
 
  sortTransactions = (e) => {
     if (e.target.innerText === "Date"){
-      return this.state.allTransactions = this.setState({allTransactions: this.state.allTransactions.sort((a,b) => b.date - a.date)})
+      return this.state.allTransactions = this.setState({allTransactions: this.state.allTransactions.slice().sort((a,b) => b.date.localeCompare(a.date))})
     } else if (e.target.innerText === "Description"){
       return this.state.allTransactions = this.setState({allTransactions: this.state.allTransactions.slice().sort((a,b) => a.description.localeCompare(b.description))})
     } else if (e.target.innerText === "Category"){
