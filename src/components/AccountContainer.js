@@ -6,15 +6,18 @@ const TRANSACTURL = 'http://localhost:6001/transactions'
 
 class AccountContainer extends Component {
   state = {
-    transactions: []
+    transactions: [],
+    displayedTransactions: [],
+    searchVal: ''
   }
 
   componentDidMount() {
     fetch(TRANSACTURL)
     .then(resp => resp.json())
-    .then(transactJSON => {
+    .then(transactsJSON => {
       this.setState({
-        transactions: transactJSON
+        transactions: transactsJSON,
+        displayedTransactions: transactsJSON
       })
     })
   }
@@ -27,12 +30,20 @@ class AccountContainer extends Component {
     })
   }
 
+  handleSearchChange = event => {
+    this.setState({
+      searchVal: event.target.value,
+      // displayedTransactions: displayedTransactions.filter(transact => transact.description.includes(searchVal))
+    })
+    console.log(this.state.searchVal)
+  }
+
   render() {
     return (
       <div>
-        <Search />
+        <Search handleChange={this.handleSearchChange} />
         <AddTransactionForm addTransaction={this.addTransaction} />
-        <TransactionsList transactions={this.state.transactions}/>
+        <TransactionsList transactions={this.state.displayedTransactions}/>
       </div>
     );
   }
