@@ -20,12 +20,11 @@ class AccountContainer extends Component {
   }
 
   render() {
-    console.log(`current state transactions: ${this.state.transactions}`)
     return (
       <div>
         <Search />
         <AddTransactionForm />
-        <TransactionsList />
+        <TransactionsList transactions={this.state.transactions}/>
       </div>
     );
   }
