@@ -83,6 +83,20 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-03-17",
+      "description": "Sold Soul",
+      "category": "Income",
+      "amount": "15000000",
+      "id": 13
+    },
+    {
+      "date": "2020-03-19",
+      "description": "Copped Purple Bag Doritos",
+      "category": "Food",
+      "amount": "-0.99",
+      "id": 14
     }
   ]
 }

@@ -22,7 +22,19 @@ class AccountContainer extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    fetch('http://localhost:6001/transactions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify(this.state.newTransaction)
+    }).then(resp => resp.json()).then(recipe => {
+      let recipeIndex = this.state.allTransactions.findIndex(trans => trans.id === recipe.id)
+      let copyTrans = [...this.state.allTransactions]
+      copyTrans[recipeIndex] = recipe
+      this.setState({
+        allTransactions: copyTrans
+      })
+    })
   }
 
   handleChange = (e) => {
@@ -30,7 +42,6 @@ class AccountContainer extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <Search />
