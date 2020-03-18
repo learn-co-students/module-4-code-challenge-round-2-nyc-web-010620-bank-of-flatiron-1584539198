@@ -29,7 +29,6 @@ class AccountContainer extends Component {
 
   handleSearch=(e)=>{
     this.setState( {searchTerm: e.target.value})
-    console.log(this.state.searchTerm)
   }
   
   render() {
