@@ -16,7 +16,7 @@ class AddTransactionForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('reload prevented! :)')
+    this.props.addTransaction(this.state)
   }
 
   render() {
