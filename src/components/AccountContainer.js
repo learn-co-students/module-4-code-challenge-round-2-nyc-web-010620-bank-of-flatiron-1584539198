@@ -36,7 +36,6 @@ class AccountContainer extends Component {
   }
 
   searchChange = (e) => {
-    let changer = this.state.copyTrans
     this.setState({ search: e.target.value },
       () => { this.setState({
         allTransactions: this.state.copyTrans.filter(trans => trans.description.includes(this.state.search))
