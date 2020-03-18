@@ -14,10 +14,15 @@ class AddTransactionForm extends Component {
     })
   }
 
+  handleSubmit = event => {
+    event.preventDefault()
+    console.log('reload prevented! :)')
+  }
+
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.handleSubmit}>
           <div className="inline fields">
             <input type="date" name="date" onChange={this.handleChange} />
             <input type="text" name="description" placeholder="Description" onChange={this.handleChange}/>
