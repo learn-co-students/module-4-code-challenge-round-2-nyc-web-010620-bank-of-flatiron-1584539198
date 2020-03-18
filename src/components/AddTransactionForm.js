@@ -1,6 +1,23 @@
 import React, { Component } from "react";
 
+const intialState = { date: "", description: "", category: "", amount: ""}
+
 class AddTransactionForm extends Component {
+
+  state = intialState
+
+  // handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   fetch('http://localhost:3000/transactions', {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type" : "application/json",
+  //       accept: 'application/json'
+  //     }
+  //     )
+  // }
+
+
   render() {
     return (
       <div className="ui segment">
