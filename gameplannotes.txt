@@ -1,0 +1,29 @@
+
+
+
+    AccountContainer            - single source of truth - fetch here, pass down list as props
+            |
+            -Search             - get copy of transactions list, filtered
+            |
+            -AddTransactionForm - post to backend, add to transactions list
+            |
+            - TransactionsList  - get transactions list, map through & pass to Transaction for each
+                |
+                - Transasction
+
+
+- See a table of the transactions.
+- Fill out and submit the form to add a new transaction. 
+    This should add a the new transaction to the table 
+    **as well as post the new transaction to the backend API for persistence**.
+- Filter transactions by typing into the search bar. 
+    Only transactions with a description matching the search term should be 
+    shown in the transactions table.
+    
+{
+ "id": 1,
+ "date": "2019-12-01",
+ "description": "Paycheck from Bob's Burgers",
+  "category": "Income",
+  "amount": 1000
+},
