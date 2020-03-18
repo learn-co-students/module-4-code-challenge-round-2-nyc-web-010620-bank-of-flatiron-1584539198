@@ -48,7 +48,7 @@ class AccountContainer extends Component {
     }).then(response => response.json())
     .then(response => {
       this.setState({
-        transactions: [...this.state.transactions,response]
+        filteredTransactions: [...this.state.filteredTransactions,response]
       })
 
     })
@@ -64,8 +64,16 @@ class AccountContainer extends Component {
     })
   }
 
-  handleDelete = () => {
-    
+  handleDelete = (e) => {
+    let foundTransIndex = this.state.filteredTransactions.findIndex(trans => trans.id === e.target.id)
+    let copyArr = [...this.state.filteredTransactions]
+    copyArr.splice(foundTransIndex,1)
+    this.setState({
+      filteredTransactions: copyArr
+    })
+    fetch(`http://localhost:6001/transactions/${e.target.id}`, {
+      method: "DELETE"
+    })
   }
   
 
@@ -73,9 +81,9 @@ class AccountContainer extends Component {
   render() {
     return (
       <div>
-        <Search handleSearch={this.handleSearch} search={this.state.search} />
+        <Search handleSearch={this.handleSearch} search={this.state.search}/>
         <AddTransactionForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} newTransaction={this.state}/>
-        <TransactionsList transactions={this.state.filteredTransactions}/>
+        <TransactionsList transactions={this.state.filteredTransactions} handleDelete={this.handleDelete}/>
       </div>
     );
   }
