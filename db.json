@@ -83,6 +83,20 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-03-18",
+      "description": "Rent",
+      "category": "Housing",
+      "amount": 700,
+      "id": 13
+    },
+    {
+      "date": "2020-03-17",
+      "description": "Gamestop",
+      "category": "Entertainment",
+      "amount": 50,
+      "id": 14
     }
   ]
 }
