@@ -132,6 +132,13 @@
       "category": "food",
       "amount": 5,
       "id": 19
+    },
+    {
+      "date": "2020-01-09",
+      "description": "GOOD STUFF",
+      "category": "Stuff",
+      "amount": 10,
+      "id": 20
     }
   ]
 }
