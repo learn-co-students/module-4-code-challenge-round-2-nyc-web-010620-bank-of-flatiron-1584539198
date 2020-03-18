@@ -43,12 +43,24 @@ class AccountContainer extends Component {
     )
   }
 
+ sortTransactions = (e) => {
+    if (e.target.innerText === "Date"){
+      return this.state.allTransactions = this.setState({allTransactions: this.state.allTransactions.sort((a,b) => b.date - a.date)})
+    } else if (e.target.innerText === "Description"){
+      return this.state.allTransactions = this.setState({allTransactions: this.state.allTransactions.slice().sort((a,b) => a.description.localeCompare(b.description))})
+    } else if (e.target.innerText === "Category"){
+      return this.state.allTransactions = this.setState({allTransactions: this.state.allTransactions.slice().sort((a,b) => a.category.localeCompare(b.category))})
+    } else if (e.target.innerText === "Amount"){
+      return this.state.allTransactions = this.setState({allTransactions: this.state.allTransactions.sort((a,b) => b.amount - a.amount)})
+    }
+  }
+
   render() {
     return (
       <div>
         <Search searchChange={this.searchChange} />
         <AddTransactionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} newTransaction={this.state.newTransaction}/>
-        <TransactionsList recipes={this.state.allTransactions}/>
+        <TransactionsList recipes={this.state.allTransactions} copyTrans={this.state.copyTrans} sortThis={this.sortTransactions}/>
       </div>
     );
   }

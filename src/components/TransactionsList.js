@@ -2,21 +2,22 @@ import React from "react";
 import Transaction from "./Transaction";
 
 const TransactionsList = (props) => {
+
   return (
     <table className="ui celled striped padded table">
       <tbody>
-        <tr>
+        <tr onClick={props.sortThis}>
           <th>
-            <h3 className="ui center aligned header">Date</h3>
+            <h3 name="date" className="ui center aligned header">Date</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Description</h3>
+            <h3 name="description" className="ui center aligned header">Description</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Category</h3>
+            <h3 name="category" className="ui center aligned header">Category</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Amount</h3>
+            <h3  name="amount" className="ui center aligned header">Amount</h3>
           </th>
         </tr>
         {props.recipes.map(recipe => <Transaction key={recipe.id} recipe={recipe}/>)}
