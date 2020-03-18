@@ -22,7 +22,7 @@ class AddTransactionForm extends Component {
       date: this.state.date,
       description: this.state.description,
       category: this.state.category,
-      amount: parseInt(this.state.amount)
+      amount: parseFloat(this.state.amount)
     }
 
     fetch(TRANSACTURL, {
@@ -30,7 +30,8 @@ class AddTransactionForm extends Component {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)
     })
-    .then(resp => console.log(resp.json()))
+    .then(resp => resp.json())
+    .then(latestTransact => this.props.addTransaction(latestTransact))
   }
 
   render() {

@@ -90,6 +90,13 @@
       "category": "Health",
       "amount": 34,
       "id": 13
+    },
+    {
+      "date": "2020-03-26",
+      "description": "Toilet Paper Barn",
+      "category": "Household Supplies",
+      "amount": -635,
+      "id": 14
     }
   ]
 }
