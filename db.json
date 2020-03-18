@@ -97,6 +97,20 @@
       "category": "Food",
       "amount": "-0.99",
       "id": 14
+    },
+    {
+      "date": "2020-03-06",
+      "description": "Vacation to Bikini Bottom",
+      "category": "Entertainment",
+      "amount": "2500",
+      "id": 15
+    },
+    {
+      "date": "2020-04-20",
+      "description": "Guan Guan",
+      "category": "Entertainment",
+      "amount": "120",
+      "id": 16
     }
   ]
 }

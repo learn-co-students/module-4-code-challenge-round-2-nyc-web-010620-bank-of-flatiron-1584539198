@@ -7,6 +7,7 @@ class AccountContainer extends Component {
 
   state = {
     allTransactions: [],
+    search: '',
     newTransaction: {
       date: '',
       description: '',
@@ -22,18 +23,10 @@ class AccountContainer extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
     fetch('http://localhost:6001/transactions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json;charset=utf-8' },
       body: JSON.stringify(this.state.newTransaction)
-    }).then(resp => resp.json()).then(recipe => {
-      let recipeIndex = this.state.allTransactions.findIndex(trans => trans.id === recipe.id)
-      let copyTrans = [...this.state.allTransactions]
-      copyTrans[recipeIndex] = recipe
-      this.setState({
-        allTransactions: copyTrans
-      })
     })
   }
 
@@ -41,10 +34,18 @@ class AccountContainer extends Component {
     this.setState({ newTransaction: {...this.state.newTransaction, [e.target.name]: e.target.value } })
   }
 
+  searchChange = (e) => {
+    this.setState({ search: e.target.value },
+      () => { this.setState({
+        allTransactions: this.state.allTransactions.filter(trans => trans.description.includes(this.state.search))
+      }) }
+    )
+  }
+
   render() {
     return (
       <div>
-        <Search />
+        <Search searchChange={this.searchChange} />
         <AddTransactionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} newTransaction={this.state.newTransaction}/>
         <TransactionsList recipes={this.state.allTransactions}/>
       </div>
