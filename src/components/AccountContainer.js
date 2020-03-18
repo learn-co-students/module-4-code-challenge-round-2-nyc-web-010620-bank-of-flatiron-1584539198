@@ -55,12 +55,19 @@ class AccountContainer extends Component {
     }
   }
 
+  handleDelete = (e) => {
+    fetch(`http://localhost:6001/transactions/${e.target.key}`, {
+      method: 'DELETE',
+      body: JSON.stringify(e)
+    })
+  }
+   
   render() {
     return (
       <div>
         <Search searchChange={this.searchChange} />
         <AddTransactionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} newTransaction={this.state.newTransaction}/>
-        <TransactionsList recipes={this.state.allTransactions} copyTrans={this.state.copyTrans} sortThis={this.sortTransactions}/>
+        <TransactionsList recipes={this.state.allTransactions} copyTrans={this.state.copyTrans} sortThis={this.sortTransactions} handleDelete={this.handleDelete}/>
       </div>
     );
   }
