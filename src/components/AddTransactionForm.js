@@ -21,7 +21,7 @@ class AddTransactionForm extends Component {
     "Content-Type": "application/json",
     "Accept": "application/json"
     },
-    body: JSON.stringify(addTransaction)
+    body: JSON.stringify(this.state)
     })
     .then(response => response.json())
     .then(transaction => {
@@ -34,15 +34,17 @@ class AddTransactionForm extends Component {
 
   
   render() {
+    const {date, description, category} = this.state
     return (
       <div className="ui segment">
-        <form className="ui form" onsubmit={this.handleSubmit}>
+        <form className="ui form" onSubmit={this.handleSubmit}>
           <div className="inline fields">
-            <input type="date" name="date" value={this.state.date}/>
-            <input type="text" name="description" value={this.state.description} placeholder="Description" />
-            <input type="text" name="category" value={this.state.category} placeholder="Category" />
+            <input type="date" name="date" value={date} onChange={this.handleInput}/>
+            <input type="text" name="description" value={description} placeholder="Description" onChange={this.handleInput}/>
+            <input type="text" name="category" value={category} placeholder="Category"onChange={this.handleInput} />
             <input
             value={this.state.amount}
+            onChange={this.handleInput}
               type="number"
               name="amount"
               placeholder="Amount"
