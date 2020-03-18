@@ -83,6 +83,13 @@
       "description": "Venmo, Pay Roommate for Rent",
       "category": "Housing",
       "amount": -975
+    },
+    {
+      "date": "2020-03-24",
+      "description": "Virus Masks",
+      "category": "Health",
+      "amount": 34,
+      "id": 13
     }
   ]
 }

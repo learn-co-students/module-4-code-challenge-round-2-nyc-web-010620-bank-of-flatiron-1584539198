@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+const TRANSACTURL = 'http://localhost:6001/transactions'
 
 class AddTransactionForm extends Component {
   state ={
@@ -16,7 +17,20 @@ class AddTransactionForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.addTransaction(this.state)
+
+    let data = {
+      date: this.state.date,
+      description: this.state.description,
+      category: this.state.category,
+      amount: parseInt(this.state.amount)
+    }
+
+    fetch(TRANSACTURL, {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    })
+    .then(resp => console.log(resp.json()))
   }
 
   render() {
