@@ -17,6 +17,7 @@ class AccountContainer extends Component {
   }
 
   handleOnSubmit=(transaction)=>{
+
     let formattedTransaction = {...transaction, amount: parseInt(transaction.amount)}
 
     fetch("http://localhost:6001/transactions", {
@@ -33,8 +34,8 @@ class AccountContainer extends Component {
   
   render() {
 
-    let filteredTransactions = this.state.transactions.filter(transaction => transaction.description.includes(this.state.searchTerm))
-    //IS CASE SENSITIVE
+    let filteredTransactions = this.state.transactions.filter(transaction => transaction.description.toUpperCase().includes(this.state.searchTerm.toUpperCase()))
+
     return (
       <div>
         <Search searchTerm={this.state.searchTerm} handleSearch={this.handleSearch}/>
