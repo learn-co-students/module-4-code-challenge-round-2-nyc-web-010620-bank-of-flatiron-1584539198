@@ -76,8 +76,22 @@ class AccountContainer extends Component {
     })
   }
 
+  handleAlphaSort = () => {
+    let copyArr = [...this.state.transactions]
+    let alphaSort = copyArr.sort((a,b) => a.category.localeCompare(b.category) )
+    this.setState({
+      filteredTransactions: copyArr
+    })
+  }
   
-  
+
+  handleDescriptionAlphaSort = () => {
+    let copyArr = [...this.state.transactions]
+    let alphaSort = copyArr.sort((a,b) => a.description.localeCompare(b.description) )
+    this.setState({
+      filteredTransactions: copyArr
+    })
+  }
 
 
   render() {
@@ -85,7 +99,8 @@ class AccountContainer extends Component {
       <div>
         <Search handleSearch={this.handleSearch} search={this.state.search}/>
         <AddTransactionForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} newTransaction={this.state}/>
-        <button> Sort by Alpha </button>
+        <button onClick={this.handleDescriptionAlphaSort}> Sort Description by Alpha </button>
+        <button onClick={this.handleAlphaSort}> Sort Category by Alpha </button>
         <TransactionsList transactions={this.state.filteredTransactions} handleDelete={this.handleDelete}/>
       </div>
     );
